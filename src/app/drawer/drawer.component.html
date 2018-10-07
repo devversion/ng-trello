@@ -20,8 +20,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>ng-trello</span>
+      <span>Angular Trello</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+
+    <ng-content></ng-content>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
