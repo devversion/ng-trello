@@ -1,0 +1,16 @@
+<mat-card>
+  <img *ngIf="image" mat-card-image [src]="image">
+  <mat-card-content>
+    {{text}}
+
+    <div *ngIf="tags">
+      <mat-chip-list>
+        <mat-chip *ngFor="let tag of tags" selectable="false">{{tag}}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="author" *ngIf="author">By: {{author}}</div>
+    <button mat-button>EDIT</button>
+  </mat-card-actions>
+</mat-card>
