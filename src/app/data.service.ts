@@ -20,6 +20,7 @@ export interface Board {
 @Injectable({providedIn: 'root'})
 export class BoardService {
   private _boards: Board[] = require('./data.json');
+  currentBoard = this._boards[0];
 
   getBoards(): Board[] {
     return this._boards;

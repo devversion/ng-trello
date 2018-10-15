@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mat-card-content {
+  margin-bottom: 0;
+}
+
+.mat-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-chip-list {
+  display: block;
+  margin-top: 12px;
+}
+
+.mat-card-image {
+  max-height: 150px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.author {
+  font-size: 14px;
+  margin-left: 8px;
+}
