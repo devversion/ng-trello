@@ -1,3 +1,13 @@
 <ng-trello-drawer>
-  My content
+  <div class="board">
+    <div class="card-list mat-elevation-z1" *ngFor="let track of board.tracks">
+      <h2 class="mat-h2">{{track.title}}</h2>
+      <ng-trello-card
+        *ngFor="let talk of track.talks"
+        [text]="talk.text"
+        [tags]="talk.tags"
+        [author]="talk.speaker"
+        [image]="talk.image"></ng-trello-card>
+    </div>
+  </div>
 </ng-trello-drawer>
