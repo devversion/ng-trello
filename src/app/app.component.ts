@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BoardService } from './data.service';
 
 @Component({
   selector: 'ng-trello-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-trello';
+
+  constructor(private _boardService: BoardService) {}
+
+  get board() {
+    return this._boardService.currentBoard;
+  }
 }

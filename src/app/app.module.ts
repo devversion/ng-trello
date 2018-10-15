@@ -5,13 +5,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrawerComponent } from './drawer/drawer.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatCardModule,
+  MatChipsModule
+} from '@angular/material';
 import { BoardService } from './data.service';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DrawerComponent
+    DrawerComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +31,9 @@ import { BoardService } from './data.service';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatChipsModule,
   ],
   providers: [BoardService],
   bootstrap: [AppComponent]
