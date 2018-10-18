@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BoardService } from './data.service';
+import { BoardService, Track } from './data.service';
 
 @Component({
   selector: 'ng-trello-root',
@@ -13,5 +13,11 @@ export class AppComponent {
 
   get board() {
     return this._boardService.currentBoard;
+  }
+
+  addNewTalk(track: Track) {
+    track.talks.unshift({
+      text: 'New talk'
+    });
   }
 }
