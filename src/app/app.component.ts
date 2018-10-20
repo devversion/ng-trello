@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BoardService, Track } from './data.service';
+import { BoardService, Talk, Track } from './data.service';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ng-trello-root',
@@ -15,9 +16,24 @@ export class AppComponent {
     return this._boardService.currentBoard;
   }
 
+  get trackIds(): string[] {
+    return this.board.tracks.map(track => track.id);
+  }
+
   addNewTalk(track: Track) {
     track.talks.unshift({
       text: 'New talk'
     });
+  }
+
+  onTalkDrop(event: CdkDragDrop<Talk[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 }

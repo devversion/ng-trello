@@ -2,8 +2,14 @@
   <div class="board">
     <div class="card-list mat-elevation-z1" *ngFor="let track of board.tracks">
       <h2 class="mat-h2">{{track.title}}</h2>
-      <div class="card-list-content">
+      <div class="card-list-content"
+           cdkDropList
+           [id]="track.id"
+           [cdkDropListData]="track.talks"
+           [cdkDropListConnectedTo]="trackIds"
+           (cdkDropListDropped)="onTalkDrop($event)">
         <ng-trello-card
+          cdkDrag
           *ngFor="let talk of track.talks"
           [text]="talk.text"
           [tags]="talk.tags"
