@@ -36,4 +36,8 @@ export class AppComponent {
         event.currentIndex);
     }
   }
+
+  onTrackDrop(event: CdkDragDrop<Track[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
 }
