@@ -13,31 +13,40 @@ import {
   MatIconModule,
   MatListModule,
   MatCardModule,
-  MatChipsModule
+  MatChipsModule,
+  MatDialogModule,
+  MatInputModule
 } from '@angular/material';
 import { BoardService } from './data.service';
 import { CardComponent } from './card/card.component';
+import { EditTalkComponent } from './edit-talk/edit-talk.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrawerComponent,
-    CardComponent
+    CardComponent,
+    EditTalkComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     LayoutModule,
     DragDropModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
     MatChipsModule,
+    MatInputModule,
   ],
   providers: [BoardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditTalkComponent],
 })
 export class AppModule { }
