@@ -1,7 +1,11 @@
 <ng-trello-drawer>
-  <div class="board">
-    <div class="card-list mat-elevation-z1" *ngFor="let track of board.tracks">
-      <h2 class="mat-h2">{{track.title}}</h2>
+  <div class="board"
+       cdkDropList
+       [cdkDropListData]="board.tracks"
+       (cdkDropListDropped)="onTrackDrop($event)"
+       cdkDropListOrientation="horizontal">
+    <div cdkDrag class="card-list mat-elevation-z1" *ngFor="let track of board.tracks">
+      <h2 cdkDragHandle class="mat-h2">{{track.title}}</h2>
       <div class="card-list-content"
            cdkDropList
            [id]="track.id"
