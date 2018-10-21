@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { BoardService, Talk, Track } from './data.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { MatDialog } from '@angular/material';
+import { EditTalkComponent } from './edit-talk/edit-talk.component';
 
 @Component({
   selector: 'ng-trello-root',
@@ -10,7 +12,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class AppComponent {
   title = 'ng-trello';
 
-  constructor(private _boardService: BoardService) {}
+  constructor(private _boardService: BoardService, private _dialog: MatDialog) {}
 
   get board() {
     return this._boardService.currentBoard;
@@ -18,6 +20,12 @@ export class AppComponent {
 
   get trackIds(): string[] {
     return this.board.tracks.map(track => track.id);
+  }
+
+  editTalk(talk: Talk) {
+    this._dialog.open(EditTalkComponent, {data: talk, width: '500px'})
+      .afterClosed()
+      .subscribe(newTalkData => Object.assign(talk, newTalkData));
   }
 
   addNewTalk(track: Track) {
