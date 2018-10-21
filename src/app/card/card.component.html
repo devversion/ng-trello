@@ -11,6 +11,6 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="author" *ngIf="author">By: {{author}}</div>
-    <button mat-button>EDIT</button>
+    <button mat-button (click)="edit.next()">EDIT</button>
   </mat-card-actions>
 </mat-card>
