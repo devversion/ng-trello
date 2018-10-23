@@ -12,4 +12,5 @@ export class CardComponent {
   @Input() image: string;
 
   @Output() edit = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<void>();
 }

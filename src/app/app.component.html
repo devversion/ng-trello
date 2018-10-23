@@ -19,7 +19,8 @@
           [tags]="talk.tags"
           [author]="talk.speaker"
           [image]="talk.image"
-          (edit)="editTalk(talk)"></ng-trello-card>
+          (edit)="editTalk(talk)"
+          (delete)="deleteTalk(talk, track)"></ng-trello-card>
       </div>
       <button (click)="addNewTalk(track)" color="primary" mat-raised-button>Add talk</button>
     </div>
