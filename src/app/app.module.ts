@@ -20,6 +20,7 @@ import {
 import { BoardService } from './data.service';
 import { CardComponent } from './card/card.component';
 import { EditTalkComponent } from './edit-talk/edit-talk.component';
+import { DeleteTalkComponent } from './delete-talk/delete-talk.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DrawerComponent,
     CardComponent,
     EditTalkComponent,
+    DeleteTalkComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [BoardService],
   bootstrap: [AppComponent],
-  entryComponents: [EditTalkComponent],
+  entryComponents: [EditTalkComponent, DeleteTalkComponent],
 })
 export class AppModule { }
