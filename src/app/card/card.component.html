@@ -3,6 +3,8 @@
   <mat-card-content>
     {{text}}
 
+    <div *ngIf="author">By: {{author}}</div>
+
     <div *ngIf="tags">
       <mat-chip-list>
         <mat-chip *ngFor="let tag of tags" selectable="false">{{tag}}</mat-chip>
@@ -10,7 +12,7 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <div class="author" *ngIf="author">By: {{author}}</div>
+    <button mat-button (click)="delete.next()">DELETE</button>
     <button mat-button (click)="edit.next()">EDIT</button>
   </mat-card-actions>
 </mat-card>
