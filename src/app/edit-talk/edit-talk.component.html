@@ -13,6 +13,18 @@
     <input matInput placeholder="Image URL" formControlName="image">
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-chip-list [tabIndex]="tabIndex" #tags formControlName="tags">
+      <mat-chip *ngFor="let tag of this.formGroup.get('tags').value" (removed)="removeTag(tag)">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Add tags"
+             [matChipInputFor]="tags"
+             (matChipInputTokenEnd)="addTag($event)" />
+    </mat-chip-list>
+  </mat-form-field>
+
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
     <button mat-button type="submit" [disabled]="formGroup.invalid">Update</button>

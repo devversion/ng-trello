@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatChipInputEvent } from '@angular/material';
 import { Talk } from '../data.service';
 
 @Component({
@@ -19,11 +19,29 @@ export class EditTalkComponent {
     this.formGroup = formBuilder.group({
       text: [talk.text, Validators.required],
       speaker: [talk.speaker, Validators.required],
-      image: [talk.image, Validators.required],
+      image: [talk.image],
+      tags: [talk.tags],
     });
   }
 
   onSubmit() {
     this.dialogRef.close(this.formGroup.value);
+  }
+
+  removeTag(tag: string) {
+    const tagsControl = this.formGroup.get('tags');
+    tagsControl.value.splice(tagsControl.value.indexOf(tag), 1);
+  }
+
+  addTag(event: MatChipInputEvent) {
+    const tagsControl = this.formGroup.get('tags');
+
+    if (tagsControl.value) {
+      tagsControl.value.push(event.value);
+    } else {
+      tagsControl.setValue([event.value]);
+    }
+
+    event.input.value = '';
   }
 }
