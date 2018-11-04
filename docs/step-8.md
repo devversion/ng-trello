@@ -1,14 +1,14 @@
 #### Quick Jump ####
-* [Step 1](./step_1.md)
-* [Step 2](./step_2.md)
-* [Step 3](./step_3.md)
-* [Step 4](./step_4.md)
-* [Step 5](./step_5.md)
-* [Step 6](./step_6.md)
-* [Step 7](./step_7.md)
+* [Step 1](./step-1.md)
+* [Step 2](./step-2.md)
+* [Step 3](./step-3.md)
+* [Step 4](./step-4.md)
+* [Step 5](./step-5.md)
+* [Step 6](./step-6.md)
+* [Step 7](./step-7.md)
 * **Step 8**
-* [Step 9](./step_9.md)
-* [Step 10](./step_10.md)
+* [Step 9](./step-9.md)
+* [Step 10](./step-10.md)
 
 ## Step 8 task:
 
@@ -230,3 +230,5 @@ whenever the `(edit)` output of an `<ng-trello-card>` component fires.
   ...
   (edit)="editTalk(talk)"></ng-trello-card>
 ```
+
+[Continue to the next step](./step-9.md)
