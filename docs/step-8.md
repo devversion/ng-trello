@@ -13,12 +13,8 @@
 ## Step 8 task:
 
 In this step we're going to add functionality that allows users to edit existing
-talks through a dialog.
-
-Angular Material comes with a `MatDialog` service that can be used to show dialogs
-that follow the Material Design specifications. Note that you are still extremely
-flexible because the developer is responsible for providing a `Component` that will
-be rendered as the dialog.
+talks through a dialog. Angular Material comes with a `MatDialog` service that
+can be used to show dialogs that follow the Material Design specifications.
 
 Since we want to use the `MatDialog` service, we first need to create a new Angular
 component that will serve the content of the dialog.
@@ -31,11 +27,9 @@ to create the component manually, we need to create the following files:
 * `src/app/edit-talk/edit-talk.component.scss`
 
 Once these files have been created, we can start setting up the `EditTalkComponent` 
-by creating a plain new Angular component that just injects data which comes
-from the `MatDialog` service.
+by creating a new Angular component that injects data which comes from the `MatDialog` service.
 
-> Note: Data for a dialog is usually provided through dependency injection and can be
-injected by using the `MAT_DIALOG_DATA` injection token.
+> Note: Data for a dialog is usually provided through the `MAT_DIALOG_DATA` injection token
 
 `src/app/edit-talk/edit-talk.component.ts`
 ```ts
@@ -55,7 +49,7 @@ export class EditTalkComponent {
 ```
 
 Now that we have the basic component set up, we should add some form
-controls that allow editing a talk. In order to do this, we add the following
+controls that allow the user to edit a talk. In order to do this, we add the following
 `HTML` to the template.
 
 `src/app/edit-talk/edit-talk.component.html`
@@ -120,7 +114,7 @@ not work yet. We still need to set up the form group and handle the dialog close
 
 In order to programmatically close a dialog, developers need to inject the
 `MatDialogRef` class that refers to the current dialog and provides a method
-for closing the current dialog.
+for closing it.
 
 `src/app/edit-talk/edit-talk.component.ts`
 ```ts
@@ -146,7 +140,7 @@ export class EditTalkComponent {
 ```
 
 Even though the edit dialog is technically ready now, it still lacks
-some custom styles in order to make the user-experience better.
+some custom styles in order to make the user experience better.
 
 `src/app/edit-talk/edit-talk.component.scss`
 ```scss
@@ -175,7 +169,7 @@ Finally, our edit talk component is finished and we can start using the `MatDial
 service to open the edit talk dialog. In order to launch the dialog, we need to
 inject the `MatDialog` service in our `AppComponent`.
 
-While being at it, we also implement the `editTalk` method that should be called
+While we're at it, we also implement the `editTalk` method that should be called
 whenever we want to edit a given talk.
 
 `src/app/app.component.ts`
@@ -198,8 +192,8 @@ export class AppComponent {
   }
 ``` 
 
-At this point, we've fulfilled all the perquisites for opening dialog, and just
-need to call the `editTalk` method whenever the `EDIT` button in the talk card
+At this point, we've fulfilled all the prerequisites for opening dialog, and we
+only need to call the `editTalk` method whenever the `EDIT` button in the talk card
 has been pressed.
 
 Since the edit button is part of a child component, we need to notify the parent
