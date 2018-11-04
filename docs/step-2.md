@@ -16,23 +16,22 @@ In this step we're going to set up our initial layout by adding a Material Desig
 as a `sidenav` in Angular Material. The drawer will be provide a way for users to switch between different pages. 
 In our case there are no real pages yet, but we will talk about the `sidenav` links in the upcoming steps.
 
-In order to start with a simple `sidenav` that also comes with a Material Design app bar, which is also known as
-`toolbar`, we can either use an Angular Material schematic, or create the layout on our own.
-
-For those who want to use the Angular CLI. Yust run the following command in the project:
+We'll start with a simple `sidenav` that comes with a Material Design toolbar. We can use a schematic or
+create the layout ourselves. For those who want to use the Angular CLI, just run the following command
+in the project:
 
 ```bash
 ng generate @angular/material:nav drawer
 ```
 
 This generates a simple navigation layout consisting of a `drawer` and a toolbar. Note that the schematic also 
-created logic to automatically show the `drawer` in a responsive way. For this, the schematic takes advantage of
-the `@angular/cdk/layout` utility.
+created some logic to automatically show the `drawer` in a responsive way. For this, the schematic takes
+advantage of the `@angular/cdk/layout` utility.
 
 ---
 
-Doing it manually is more time consuming, but helps you developing a feeling for Angular Material components and the
-Angular component devkit.
+Doing it manually is more time consuming, but helps you developing a feeling for working with Angular Material
+components and the Angular Component Dev Kit.
 
 First, we need to create a new component that includes the `drawer` and `toolbar`. Therefore you need to create the
 following files:
@@ -55,8 +54,8 @@ import { Component } from '@angular/core';
 export class DrawerComponent {}
 ```
 
-Now, since we've also referenced the associated `.html` and `.scss` files in the component, we should create the
-template for the `DrawerComponent`.
+Now, since we've also referenced the associated `.html` and `.scss` files in the component, we should
+fill out the template for the `DrawerComponent`.
 
 `src/app/drawer/drawer.component.html`
 ```html
@@ -96,7 +95,7 @@ template for the `DrawerComponent`.
     </mat-toolbar>
     
     <!-- 
-      Since we want to make the drawer component independent to the actual application content, we just
+      Since we want to make the drawer component independent to the actual application content, we
       render the content that has been projected. 
     -->
     
@@ -106,8 +105,8 @@ template for the `DrawerComponent`.
 </mat-sidenav-container>
 ```
 
-Once we've set up the template for the new component, we can also add some custom styles in favor of making
-our app look better.
+Once we've set up the template for the new component, we can also add some custom styles in order
+to make our app look better.
 
 `src/app/drawer/drawer.component.scss`
 ```scss
@@ -117,17 +116,17 @@ our app look better.
   height: 100%;
 }
 
- .sidenav {
+.sidenav {
   width: 200px;
 }
 
-// We want the toolbar in the sidenav to blend with the actual background.
- .sidenav .mat-toolbar {
+// We want the toolbar in the sidenav to blend with the background.
+.sidenav .mat-toolbar {
   background: inherit;
 }
 
-// Our app toolbar should be sticky and therefore always visible to the user.
- .mat-toolbar.mat-primary {
+// Our app toolbar is set to sticky so it's always visible to the user.
+.mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -137,8 +136,8 @@ our app look better.
 Finally we've finished writing the code for our initial drawer component. Nevertheless, in order to be able to
 display it, we still need to:
  
- * Import the given Angular Material `NgModule`'s in our app module
- * Add the newly added component to the `NgModule` declarations.
+ * Import the given Angular Material `NgModule`s in our app module.
+ * Add the newly-created component to the `NgModule` declarations.
  * Use the new `<ng-trello-drawer>` component in our app. 
 
 `src/app/app.module.ts`
@@ -168,14 +167,14 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 </ng-trello-drawer>
 ```
 
-At this point, this step is technically already finished, but practically it does not fulfil our good UX-expectations
-in case someone visits the app with bigger or smaller devices.
+At this point we've got a working layout, however the UX isn't great because it doesn't account for users
+on smaller devices.
 
   1) On bigger screens, the `sidenav` can be always shown next to the content
   2) On smaller screens, the `sidenav` should be hidden by default, but still openable through the button.
 
-We can improve this user experience by using the `@angular/cdk/layout` utility that allows us to react on changes
-to the viewport size.
+We can improve the user experience by using the `@angular/cdk/layout` utility that allows us to react to
+changes to the viewport size.
 
 First of all, add the `LayoutModule` from the CDK to the app module.
 
@@ -192,8 +191,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 ```
 
 Now that we have imported the CDK layout utilities, we can start using them in our `DrawerComponent` to construct
-an observable that emits whether the screen size is for a `Handset`. We can use the observable to dynamically
-switch between the different modes of our sidenav. 
+an observable that emits when the screen size matches the `Handset` breakpoint. We can use the observable to
+dynamically switch between the different modes of our `sidenav`. 
 
 `src/app/drawer/drawer.component.ts`
 ```ts
@@ -224,7 +223,7 @@ Once we have our `isHandset` observable set up, we can integrate it into our `HT
    There are a few things we want to dynamically change if we are on a handset device:
       
       1) If we are on a handset device, the sidenav **overlaps** the content
-      2) If we aren't on a handset device, the sidenav should be **always** opened. 
+      2) If we aren't on a handset device, the sidenav should **always** be opened. 
   -->
 
   <mat-sidenav ...
