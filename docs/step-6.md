@@ -5,7 +5,7 @@
 * [Step 4](./step-4.md)
 * [Step 5](./step-5.md)
 * **Step 6**
-* [Step 6](./step-7.md)
+* [Step 7](./step-7.md)
 * [Step 8](./step-8.md)
 * [Step 9](./step-9.md)
 * [Step 10](./step-10.md)
