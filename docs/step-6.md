@@ -12,8 +12,9 @@
 
 ## Step 6 task:
 
-In this step we're using the `DragDropModule` which has been recently introduced with Angular Material V7.
-Our goal is to make the individual talks (or `<ng-trello-card>` elements) sortable and transferable.
+In this step we're using the `DragDropModule` which has been recently introduced as part of
+the Angular Component Devkit V7. Our goal is to make the individual talks
+(or `<ng-trello-card>` elements) sortable and transferable.
 
 This means that we want to allow users to manually sort and move talks between different tracks using
 drag and drop.
@@ -47,7 +48,8 @@ two directives (`cdkDropList` and `cdkDrag`) onto two HTML elements.
 
 <!--
  Add the `cdkDropList` directive and bind it to the talks array. We want to connect all talk drop lists
- through their ids. We could also use template variables, but ids are more convenient and less code here.
+ through their ids. We could also use template variables, but ids are more convenient and less code
+ in this case.
  -->
 <div class="card-list-content"
      cdkDropList
@@ -82,7 +84,7 @@ export class AppComponent {
   }
   
   onTalkDrop(event: CdkDragDrop<Talk[]>) {
-    // In case the destination container is different to the previous container, we
+    // In case the destination container is different from the previous container, we
     // need to transfer the given talk to the target data array. This happens if
     // a talk has been dropped on a different track.
     
@@ -121,7 +123,8 @@ Now that we have improved the UX a bit, we still need to tackle another small is
 appears since we use an `<img>` which is by default `draggable` in the browser.
 
 If someone holds the cursor on the image, the actual talk should be dragged and not the
-image. In order to fix this, we just need to disable dragging of the `<img>` element.
+image. In order to fix it, we just need to disable the native browser dragging of
+the `<img>` element.
 
 `src/app/card/card.component.html`
 ```html
