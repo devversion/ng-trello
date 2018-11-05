@@ -72,6 +72,9 @@ module expects the developer to take care of moving and transferring items betwe
 
 `src/app/app.component.ts`
 ```ts
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+
+...
 export class AppComponent {
   ...
   
