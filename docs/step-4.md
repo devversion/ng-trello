@@ -341,10 +341,9 @@ take it a step further by showing the name of the current board in the toolbar.
     ...
     <mat-nav-list>
       <!-- Show the list of boards and allow users to switch between them. -->
-      <button
+      <a mat-list-item
         (click)="activate(board)"
-        *ngFor="let board of boards"
-        mat-list-item>{{board.title}}</button>
+        *ngFor="let board of boards">{{board.title}}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
