@@ -73,9 +73,7 @@ Now that we have our element, we have to add the styles:
   // Flexbox styling that defines the direction in which the content is flowing.
   // Also makes it easier to stretch the lists to the height of the screen later on.
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  flex-direction: row;
 
   // Ensure that the board covers the viewport and add some padding to make it look better.
   width: 100%;
