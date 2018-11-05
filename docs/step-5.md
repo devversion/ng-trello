@@ -47,7 +47,8 @@ Now that our logic is in place, we can add the button that creates the talk.
 ```
 
 At this point we've achieved our goal of allowing users to add new talks, however the UX isn't
-great, because the "Add talk" button is pushed out of the viewport for tracks with a lot of talks.
+great, because the `Add talk` button is pushed out of the viewport for tracks with a lot of talks.
+
 We can make it better by wrapping the `ng-trello-card` inside another element called
 `card-list-content` and only making the list content scrollable, while the header and button stay
 in place.
@@ -70,6 +71,8 @@ in place.
 `app.component.scss`
 ```scss
 .card-list {
+  ...
+
   // Makes it possible for the `card-list-content ` to take up the remaining space.
   display: flex;
   flex-direction: column;
