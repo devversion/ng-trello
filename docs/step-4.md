@@ -95,6 +95,8 @@ pushing the toolbar up and to stop it from stretching out the container once it 
 `drawer.component.scss`
 ```scss
 .mat-toolbar.mat-primary {
+  ...
+
   // Prevent the toolbar from shrinking.
   flex-shrink: 0;
 }
