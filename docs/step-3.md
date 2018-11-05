@@ -38,6 +38,7 @@ export interface Talk {
 export interface Track {
   title: string;
   talks: Talk[];
+  id: string;
 }
 
 export interface Board {
