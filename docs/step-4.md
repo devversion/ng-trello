@@ -315,9 +315,12 @@ import { BoardService, Board } from '../data.service';
 
 @Component()
 export class DrawerComponent {
+  ...
+
   boards: Board[];
 
-  constructor(private boardService: BoardService) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private boardService: BoardService) {
     this.boards = boardService.getBoards();
   }
 
