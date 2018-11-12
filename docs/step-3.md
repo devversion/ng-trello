@@ -19,7 +19,7 @@ First of all, we're going to create a file with our dummy data which we'll expos
 service. We've prepared a JSON file that contains the AngularConnect schedule in the form of
 a Trello board which you can paste into your project. To get started, create an empty file
 under `./src/app/data.json` and
-[add the dummy data from here](https://github.com/DevVersion/ng-trello/blob/master/src/app/data.json).
+[add the dummy data from here](https://github.com/DevVersion/ng-trello/blob/step-10/src/app/data.json).
 
 Now that we have our data, we can start working on our service. First we have to create a empty
 file under `./src/app/data.service.ts` in which we'll have our service, as well as the interfaces
